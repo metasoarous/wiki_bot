@@ -16,7 +16,4 @@ require "article"
 require "controller"
 
 
-controller = Controller.new
 
-controller.populate_db
-controller.parse_all
