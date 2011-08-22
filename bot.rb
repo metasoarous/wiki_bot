@@ -11,6 +11,7 @@ class Bot
 		def parse_indices
 			(0..9).each {|i| parse_index(i) }
 			("A".."Z").each do |l1|
+				parse_index(l1)
 				("a".."z").each do |l2|
 					parse_index(l1 + l2)
 					parse_index(l1 + (l2.capitalize))

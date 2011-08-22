@@ -16,15 +16,5 @@ describe Bot do
 end
 
 describe Bot::DatabasePopulator do
-	describe "index_array" do
-		before :each do
-			@bot = Bot::DatabasePopulator.new
-		end
-		it "should not raise" do
-			lambda {@bot.index_array}.should_not raise_error
-		end
-		it "should return" do
-			lambda {@bot.index_array}.should_not raise_error
-		end
-	end
+	
 end
