@@ -4,7 +4,7 @@ require "bundler/setup"
 
 Bundler.require :default
 
-ENV["database"] ||= "db/database.sqlite3"
+ENV["APP_ENV"] = "production"
 
 ActiveRecord::Base.establish_connection(
 	adapter: 		"sqlite3",
