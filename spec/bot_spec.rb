@@ -15,7 +15,7 @@ describe Bot do
 	end
 end
 
-describe Bot::DatabasePolulator do
+describe Bot::DatabasePopulator do
 	describe "index_array" do
 		before :each do
 			@bot = Bot::DatabasePopulator.new
