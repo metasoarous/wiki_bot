@@ -1,37 +1,41 @@
-require File.join( "./spec/spec_helper")
+require File.join( "./spec_helper")
 
 describe Parser do
 
 	before :each do
-		@parser = Parser.new
 		@index_page = File.read("data/index_page.html")
 		@last_index_page = File.read("data/last_index_page.html")
 		@wikipedia_page = File.read("data/wikipedia_page.html")
 	end
 	
-	describe "#find_next_page_link" do
-		it "should find the next link when there is one" do
-			@parser.find_next_page_link( @index_page).should == link_string
+	describe "#next_page_path" do
+		it "should find the next page path when there is one" do
+			parser = Parser.new(@index_page)
+			parser.next_page_path.should == "/w/index.php?title=Special:AllPages&from=%22C%22+word"
 		end
 		it "should return nill when on the last page" do
-			@parser.find_next_page_link(@last_index_page).should be_nil
+			parser = Parser.new(@last_index_page)
+			parser.find_next_page_link.should be_nil
 		end
 	end
 	
 	describe "#find_articles" do
 		it "should return articles that are not italicized" do
-			@parser.find_articles(@index_page).should include("Some Title")
-			@parser.find_articles(@index_page).should include("Some Other Title")
+			parser = Parser.new(@index_page)
+			parser.find_articles.should include("!!!Fuck_You!!!")
+			parser.find_articles.should include("!WOWOW!")
 		end
 		it "Should not return articles that are italicized (are redirects)" do
-			@parser.find_articles(@index_page).should_not include("Some Bad Title")
-			@parser.find_articles(@index_page).should_not include("Some Other Bad Title")
+			parser = Parser.new(@index_page)
+			parser.find_articles.should_not include("!Oh Gloria Inmarcesible!")
+			parser.find_articles.should_not include("\"Boys are stupid, throw rocks at them!\" controversy")
 		end
 	end
 	
 	describe "#find_first_link" do
 		it "should return the first link" do
-			@parser.first_link(@wikipedia_page).should == "Whatever it should equal"
+			parser = Parser.new(@wikipedia_page)
+			parser.first_link.should == "http://en.wikipedia.org/wiki/Sex_organ"
 		end
 	end
 end
