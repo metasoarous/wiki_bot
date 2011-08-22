@@ -1,4 +1,5 @@
 require "net/http"
+require "parser"
 
 class Bot
 	def get(address)

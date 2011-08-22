@@ -1,5 +1,5 @@
 
-require File.join( "./spec/spec_helper")
+require "./spec/spec_helper"
 
 describe Article do
 	before :each do
