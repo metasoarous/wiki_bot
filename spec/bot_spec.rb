@@ -1,5 +1,4 @@
-
-require File.join( "./spec/spec_helper")
+require "./spec/spec_helper"
 
 describe Bot do
 	before :all do

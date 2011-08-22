@@ -1,4 +1,5 @@
-require  "./spec/spec_helper"
+
+require "./spec/spec_helper"
 
 describe Parser do
 
