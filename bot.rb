@@ -20,6 +20,8 @@ class Bot
 		
 		def parse_index(index)
 			string = get(BASE_ADDRESS + index )
+			articles = some_fucked_up_parse_function_written_with_nokogiri
+			articles.each {|name| Article.create(:name => name)}
 			# scroll through pages of the index and parse (grab all the article 
 			# names using nokogiri madness) and create article records
 		end
