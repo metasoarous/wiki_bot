@@ -14,5 +14,5 @@ ActiveRecord::Base.establish_connection(config)
 require "./article"
 require "./controller"
 require "./bot"
-
+require "./parser"
 
