@@ -1,4 +1,4 @@
-require File.join( "./spec_helper")
+require  "./spec/spec_helper"
 
 describe Parser do
 
