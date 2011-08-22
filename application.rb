@@ -4,14 +4,11 @@ require "bundler/setup"
 
 Bundler.require :default
 
-ENV["APP_ENV"] = "production"
+ENV["APP_ENV"] ||= "production"
 
-ActiveRecord::Base.establish_connection(
-	adapter: 		"sqlite3",
-	database: 	ENV["database"],
-	pool: 			5,
-  timeout: 		5000
-)
+
+config = YAML::load(File.open('db/config.yml'))[ ENV["APP_ENV"] ]
+ActiveRecord::Base.establish_connection(config)
 
 
 require "./article"
