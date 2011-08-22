@@ -3,9 +3,9 @@ require  "./spec/spec_helper"
 describe Parser do
 
 	before :each do
-		@index_page = File.read("data/index_page.html")
-		@last_index_page = File.read("data/last_index_page.html")
-		@wikipedia_page = File.read("data/wikipedia_page.html")
+		@index_page = File.read("spec/data/index_page.html")
+		@last_index_page = File.read("spec/data/last_index_page.html")
+		@wikipedia_page = File.read("spec/data/wikipedia_page.html")
 	end
 	
 	describe "#next_page_path" do
